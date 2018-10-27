@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Falidasi</title>
+</head>
+<body>
+	<div id="info"></div>
+	<input type="text" name="username" id="username" placeholder="Username">
+	<input type="text" name="email" id="email" placeholder="Alamat E-mail">
+	<input type="text" name="phone_number" id="phone_number" placeholder="Nomor Telepon">
+	<button onclick="formValidasi()">Cek</button>
+</body>
+<script type="text/javascript">
+	function formValidasi(){
+		var username 	= document.getElementById("username").value // mengambil isi inputan usernmae
+		var email 		= document.getElementById("email").value // mengambil isi inputan email
+		var et 			= email.indexOf("@") // mencari simbol '@' pada inputan email
+		var dot 		= email.indexOf(".") // mencari simbol '.' pada inputan email
+		var phone_number= document.getElementById("phone_number").value // mengambil isi inputan phone_number
+	    var cek 		= new RegExp(/^[0-9+ ]+$/); // mengecek isi dari inputan phone_number
+		if (username == "" || email == "" || phone_number == "") { // jika inputan ada yang tidak diisi
+			document.getElementById("info").innerHTML = "Data Harus Diisi !"
+		}else if (username != username.toLowerCase()) { // jika inputan username huruf kecil
+			document.getElementById("info").innerHTML = "Username Harus Huruf Kecil"
+		}else if (et < 1 || dot < 1 || email != email.toLowerCase()) { // jika inputan email tidak valid
+			console.log(et)
+			document.getElementById("info").innerHTML = "E-mail Tidak Valid"
+		}else if(!Boolean(cek.test(phone_number))){ // jika inputan phone_number tidak valid
+			document.getElementById("info").innerHTML = "Nomor Telepon Tidak Valid"
+		}else{ // jika inputan valid
+			document.getElementById("info").innerHTML = "Data Input Benar :)"
+		}
+	}
+	
+</script>
+</html>
