@@ -50,7 +50,7 @@
 
  	// fungsi konvert ke json
  	public function konjson(){
- 		return json_encode($this, JSON_PRETTY_PRINT);
+ 		return json_encode($this->data, JSON_PRETTY_PRINT);
  	}
  	
 }
@@ -60,7 +60,7 @@ $nama		= "Hamdan Ibrahim";
 $alamat		= "Ds.Jadimulya GG.Mushollah No.88 RT.03 RW.01 Kab.Cirebon Kec.Gunung Jati Prov.Jawa Barat";
 $hobi 		= ['Sepedah','Bulu Tangkis','Membaca Berita','Ngoding'];
 $sekolah	= [
-				"hightSchool" 	=> "SMK Negeri 1 Kedawung",
+				"highSchool" 	=> "SMK Negeri 1 Kedawung",
 				"university" 	=> ""
 			  ];
 $kemampuan	= [

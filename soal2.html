@@ -13,14 +13,15 @@
 <script type="text/javascript">
 	function formValidasi(){
 		var username 	= document.getElementById("username").value // mengambil isi inputan usernmae
+	    var ceku 		= /^[a-z]+$/ // inputan wajib huruf kecil
 		var email 		= document.getElementById("email").value // mengambil isi inputan email
 		var et 			= email.indexOf("@") // mencari simbol '@' pada inputan email
 		var dot 		= email.indexOf(".") // mencari simbol '.' pada inputan email
 		var phone_number= document.getElementById("phone_number").value // mengambil isi inputan phone_number
-	    var cek 		= new RegExp(/^[0-9+ ]+$/); // mengecek isi dari inputan phone_number
+	    var cek 		= new RegExp(/^[0-9+ ]+$/); // inputan hanya berupa angka, spasi dan tanda plus
 		if (username == "" || email == "" || phone_number == "") { // jika inputan ada yang tidak diisi
 			document.getElementById("info").innerHTML = "Data Harus Diisi !"
-		}else if (username != username.toLowerCase()) { // jika inputan username huruf kecil
+		}else if (!Boolean(username.match(ceku))) { // jika inputan username bukan huruf kecil
 			document.getElementById("info").innerHTML = "Username Harus Huruf Kecil"
 		}else if (et < 1 || dot < 1 || email != email.toLowerCase()) { // jika inputan email tidak valid
 			console.log(et)
